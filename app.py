@@ -18,9 +18,12 @@ def recommend(movie):
         movie_names.append(new_df.iloc[i[0]]['title'])
     return movie_names
 
-st.title('Movie Recommendation System')
 
-movie_input = st.text_input("Enter movie name")
+st.markdown("<h1 style='margin-top:-50px;'>Movie Recommendation System</h1>", unsafe_allow_html=True)
+
+
+movie_input = st.selectbox("Select a movie", new_df['title'])
+
 if movie_input:
     recommended_movies = recommend(movie_input)
     if recommended_movies:
